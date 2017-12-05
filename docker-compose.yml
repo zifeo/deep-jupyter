@@ -1,0 +1,39 @@
+version: '3'
+
+volumes:
+  jupyter:
+  acme:
+
+services:
+
+  jupyter:
+    build: .
+    restart: unless-stopped
+    devices:
+    {% for i in range(N_GPU) %}
+      - /dev/nvidia{{i}}
+    {% endfor %}
+    volumes:
+      - jupyter:/juypter
+    networks:
+      - default
+    labels:
+      - traefik.enable=true
+      - "traefik.frontend.rule=Host:$DEEP_HOST"
+      - traefik.port=8888
+      - traefik.docker.network=default
+
+  traefik:
+    image: traefik:latest
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik.toml:/etc/traefik/traefik.toml:ro
+      - acme:/etc/traefik/acme
+    networks:
+      - default
+    ports:
+      - 80:80
+      - 443:443
+    command: "traefik -c traefik.toml --acme.email $DEEP_EMAIL"
+
