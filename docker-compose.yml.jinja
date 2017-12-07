@@ -35,5 +35,5 @@ services:
     ports:
       - 80:80
       - 443:443
-    command: "traefik -c traefik.toml --acme.email $DEEP_EMAIL"
+    command: "traefik -c traefik.toml --acme.email=$DEEP_EMAIL"
 
