@@ -13,7 +13,7 @@ RUN apt-get update && \
                        python3-dev \
                        python3-pip \
                        python3-tk \
-                       python3-wheel && \
+                       python3-wheel \
                        libcupti-dev && \
     pip3 install --upgrade pip && \
     apt-get clean && \
