@@ -34,9 +34,9 @@ RUN pip3 --no-cache-dir install --upgrade \
          h5py \
          tqdm \
          jupyter_contrib_nbextensions \
-         https://github.com/mind/wheels/releases/download/tf1.4-gpu-cuda9-nomkl/tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl \
+         https://github.com/mind/wheels/releases/download/tf1.4-gpu-cuda9-generic/tensorflow-1.4.0-cp35-cp35m-linux_x86_64.whl \
          tensorflow \
-         http://download.pytorch.org/whl/cu90/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl  \
+         pip3 install http://download.pytorch.org/whl/cu90/torch-0.3.0.post4-cp35-cp35m-linux_x86_64.whl \
          torchvision && \
     jupyter contrib nbextension install --symlink
 
