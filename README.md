@@ -13,8 +13,8 @@ The envfile contains information for Let's Encrypt certification (the host shoul
 ```shell
 cp .env.example .env
 vim .env
-nvidia-docker-compose up -d --build  
-nvidia-docker-compose down
+nvidia-docker-compose --template docker-compose.yml.jinja up -d --build  
+nvidia-docker-compose --template docker-compose.yml.jinja down
 ```
 
 ## Toolbox
