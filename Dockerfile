@@ -14,13 +14,14 @@ RUN apt-get update && \
                        python3-pip \
                        python3-tk \
                        python3-wheel && \
+                       libcupti-dev && \
     pip3 install --upgrade pip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /juypter
 
-RUN pip3 --no-cache-dir install \
+RUN pip3 --no-cache-dir install --upgrade \
          numpy \
          matplotlib \
          scipy \
@@ -32,6 +33,8 @@ RUN pip3 --no-cache-dir install \
          h5py \
          tqdm \
          jupyter_contrib_nbextensions \
+         https://github.com/mind/wheels/releases/download/tf1.4-gpu-cuda9-nomkl/tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl \
+         tensorflow \
          http://download.pytorch.org/whl/cu80/torch-0.2.0.post3-cp35-cp35m-manylinux1_x86_64.whl \
          torchvision && \
     jupyter contrib nbextension install --symlink
