@@ -2,6 +2,7 @@ FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 
 ENV LANG C.UTF-8
 ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:${LD_LIBRARY_PATH}
+ENV CUDA_HOME /usr/local/cuda
 
 RUN apt-get update && \
     apt-get install -y software-properties-common \
@@ -35,7 +36,7 @@ RUN pip3 --no-cache-dir install --upgrade \
          jupyter_contrib_nbextensions \
          https://github.com/mind/wheels/releases/download/tf1.4-gpu-cuda9-nomkl/tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl \
          tensorflow \
-         http://download.pytorch.org/whl/cu80/torch-0.2.0.post3-cp35-cp35m-manylinux1_x86_64.whl \
+         http://download.pytorch.org/whl/cu90/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl  \
          torchvision && \
     jupyter contrib nbextension install --symlink
 
