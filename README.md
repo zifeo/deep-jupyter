@@ -1,6 +1,7 @@
 # Deep Jupyter
 
-[![Build Status](https://travis-ci.org/zifeo/deep-jupyter.svg?branch=master)](https://travis-ci.org/zifeo/deep-jupyter)
+[![Travis](https://img.shields.io/travis/zifeo/deep-jupyter.svg)](https://travis-ci.org/zifeo/deep-jupyter)
+[![Docker Build Status](https://img.shields.io/docker/build/zifeo/deep-jupyter.svg)](https://hub.docker.com/r/zifeo/deep-jupyter/)
 
 Spawn a gpu-powered dockerized jupyter instance backed by a reverse proxy on ports 80 and 443.
 
