@@ -9,9 +9,6 @@ services:
   jupyter:
     build: .
     restart: unless-stopped
-    devices:
-      - /dev/nvidia0
-      - /dev/nvidia1
     volumes:
       - jupyter:/juypter
     networks:

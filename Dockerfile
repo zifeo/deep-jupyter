@@ -34,11 +34,12 @@ RUN pip3 --no-cache-dir install --upgrade \
          gpustat \
          h5py \
          tqdm \
-         jupyterlab \
          https://github.com/mind/wheels/releases/download/tf1.4-gpu-cuda9-generic/tensorflow-1.4.0-cp35-cp35m-linux_x86_64.whl \
+         jupyter-tensorboard \
          http://download.pytorch.org/whl/cu90/torch-0.3.0.post4-cp35-cp35m-linux_x86_64.whl \
-         torchvision && \
-    jupyter serverextension enable --py jupyterlab --sys-prefix
+         torchvision \
+         tensorboardX \
+         bleach==1.5.0
 
-CMD jupyter lab --ip=0.0.0.0 --allow-root --no-browser
+CMD jupyter notebook --ip=0.0.0.0 --allow-root --no-browser
 
