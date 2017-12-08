@@ -40,5 +40,5 @@ RUN pip3 --no-cache-dir install --upgrade \
          torchvision && \
     jupyter serverextension enable --py jupyterlab --sys-prefix
 
-CMD jupyter lab --ip=0.0.0.0 --allow-root
+CMD jupyter lab --ip=0.0.0.0 --allow-root --no-browser
 

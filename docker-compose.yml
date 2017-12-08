@@ -10,9 +10,8 @@ services:
     build: .
     restart: unless-stopped
     devices:
-    {% for i in range(N_GPU) %}
-      - /dev/nvidia{{i}}
-    {% endfor %}
+      - /dev/nvidia0
+      - /dev/nvidia1
     volumes:
       - jupyter:/juypter
     networks:

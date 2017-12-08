@@ -7,14 +7,14 @@ Spawn a gpu-powered dockerized jupyter instance backed by a reverse proxy on por
 
 ## Getting started
 
-Install [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) and [nvidia-docker-compose](https://github.com/eywalker/nvidia-docker-compose).
+Install [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) and add the first level key `"default-runtime": "nvidia"` in `/etc/docker/daemon.json` (not forgetting to restart `sudo service docker restart`).
 The envfile contains information for Let's Encrypt certification (the host should point to the server running this setup).
 
 ```shell
 cp .env.example .env
 vim .env
-nvidia-docker-compose --template docker-compose.yml.jinja up -d --build  
-nvidia-docker-compose --template docker-compose.yml.jinja down
+docker-compose up -d --build  
+docker-compose down
 ```
 
 ## Toolbox
@@ -24,3 +24,5 @@ nvidia-docker-compose --template docker-compose.yml.jinja down
 - pandas
 - sklearn
 - pytorch
+- tensorflow
+
