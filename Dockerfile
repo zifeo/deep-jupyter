@@ -22,7 +22,7 @@ RUN apt-get update && \
     pip3 install --upgrade pip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    mkdir .ssh && \
+    mkdir /root/.ssh && \
     pip3 --no-cache-dir install --upgrade \
          cython \
          numpy \
