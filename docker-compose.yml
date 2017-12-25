@@ -13,6 +13,8 @@ services:
       - jupyter:/juypter
     networks:
       - default
+    ports:
+      - "$DEEP_PORT:22"
     labels:
       - traefik.enable=true
       - "traefik.frontend.rule=Host:$DEEP_HOST"
