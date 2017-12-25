@@ -3,7 +3,7 @@
 [![Travis](https://img.shields.io/travis/zifeo/deep-jupyter.svg)](https://travis-ci.org/zifeo/deep-jupyter)
 [![Docker Build Status](https://img.shields.io/docker/build/zifeo/deep-jupyter.svg)](https://hub.docker.com/r/zifeo/deep-jupyter/)
 
-Spawn a gpu-powered dockerized jupyter instance backed by a reverse proxy on ports 80 and 443.
+Spawn a gpu-powered and dockerized jupyter instance proxied over https.
 
 ## Getting started
 
@@ -17,12 +17,27 @@ docker-compose up -d --build
 docker-compose down
 ```
 
+## Running remote kernel
+
+Using [remote_ikernel](https://bitbucket.org/tdaff/remote_ikernel), one can easily run a kernel from one outside notebook server:
+
+```shell
+remote_ikernel manage --add --kernel_cmd="ipython kernel -f {connection_file}" --name="Python 3 (remote)" --interface=ssh --host=root@host:port --language=python
+```
+
+## Tensorboard
+
+One can spawn a board for any directory using tensorboard button in jupyter ui (the redirection might not work directly, in this case, go to the running tab and click on the corresponding board). 
+The bord can also be used from pytorch using [tensorboard-pytorch](https://github.com/lanpa/tensorboard-pytorch) package.
+
 ## Toolbox
 
+- cython
 - numpy/scipy
 - matplotlib/seaborn
 - pandas
-- sklearn
-- pytorch
+- sklearn/scikit-plot
+- pyro
+- pytorch/skorch
 - tensorflow
 
