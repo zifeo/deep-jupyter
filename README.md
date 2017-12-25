@@ -20,7 +20,7 @@ docker-compose down
 ## Running remote kernel
 
 Installing [remote_ikernel](https://bitbucket.org/tdaff/remote_ikernel), one can easily run the included kernel remotely from another notebook server.
-The only requirement is having SSH access without password to the container (`docker exec -it jupyter_container_name /bin/sh -c 'echo "SSH_PUBLIC_KEY" >> /root/.ssh/authorized_keys'` to add your key).
+The only requirement is having SSH access without password to the container (`docker exec -it jupyter_container_name /bin/sh -c 'echo "SSH_PUBLIC_KEY" >> /root/.ssh/authorized_keys && service ssh restart'` to add your key).
 
 ```shell
 remote_ikernel manage --add --kernel_cmd="ipython kernel -f {connection_file}" --name="Python 3 (remote)" --interface=ssh --host=root@host:port --language=python
