@@ -30,6 +30,7 @@ RUN apt-get update && \
          scipy \
          pandas \
          scikit-learn \
+         scikit-image \
          scikit-plot \
          seaborn \
          pyro-ppl \
