@@ -17,10 +17,16 @@ docker-compose up -d --build
 docker-compose down
 ```
 
+## Using only the docker image
+
+```shell
+docker run --rm -it -p 8888:8888 -v $(pwd):/jupyter zifeo/deep-jupyter
+```
+
 ## Running remote kernel
 
 Installing [remote_ikernel](https://bitbucket.org/tdaff/remote_ikernel), one can easily run the included kernel remotely from another notebook server.
-The only requirement is having SSH access without password to the container (`docker exec -it jupyter_container_name /bin/sh -c 'echo "SSH_PUBLIC_KEY" >> /root/.ssh/authorized_keys && service ssh restart'` to add your key).
+The only requirement is having SSH access (without password) to the container (`docker exec -it jupyter_container_name /bin/sh -c 'echo "SSH_PUBLIC_KEY" >> /root/.ssh/authorized_keys && service ssh restart'` to add your key).
 
 ```shell
 remote_ikernel manage --add --kernel_cmd="ipython kernel -f {connection_file}" --name="Python 3 (remote)" --interface=ssh --host=root@host:port --language=python
@@ -29,16 +35,17 @@ remote_ikernel manage --add --kernel_cmd="ipython kernel -f {connection_file}" -
 ## Tensorboard
 
 One can spawn a board for any directory using tensorboard button in jupyter ui (the redirection might not work directly, in this case, go to the running tab and click on the corresponding board). 
-The bord can also be used from pytorch using [tensorboard-pytorch](https://github.com/lanpa/tensorboard-pytorch) package.
+The board can also be used from pytorch using [tensorboard-pytorch](https://github.com/lanpa/tensorboard-pytorch) package.
 
 ## Toolbox
+
+Based on Cuda 9, for full list see the [Dockerfile](./Dockerfile).
 
 - cython
 - numpy/scipy
 - matplotlib/seaborn
 - pandas
-- sklearn/scikit-plot
-- pyro
+- sklearn/scikit-image/scikit-plot
 - pytorch/skorch
 - tensorflow
-
+- pyro
