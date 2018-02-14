@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
 
 ENV LANG C.UTF-8
 ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:${LD_LIBRARY_PATH}
@@ -33,13 +33,14 @@ RUN apt-get update && \
          scikit-image \
          scikit-plot \
          seaborn \
-         pyro-ppl \
          h5py \
          tqdm \
-         http://download.pytorch.org/whl/cu90/torch-0.3.0.post4-cp35-cp35m-linux_x86_64.whl \
+         http://download.pytorch.org/whl/cu91/torch-0.3.1-cp35-cp35m-linux_x86_64.whl \
          torchvision \
+         pyro-ppl \
          skorch \
-         https://github.com/mind/wheels/releases/download/tf1.4-gpu-cuda9-generic/tensorflow-1.4.0-cp35-cp35m-linux_x86_64.whl \
+         https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.5.0-cp35-cp35m-linux_x86_64.whl \
+         keras \
          jupyter \
          jupyter-tensorboard \
          tensorboardX \
