@@ -46,7 +46,7 @@ RUN apt-get update && \
          tensorboardX \
          bleach==1.5.0
 
-WORKDIR /juypter
+WORKDIR /jupyter
 
 CMD jupyter notebook --ip=0.0.0.0 --allow-root --no-browser
 
