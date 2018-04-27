@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
 
 ENV LANG C.UTF-8
 ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:${LD_LIBRARY_PATH}
@@ -35,16 +35,15 @@ RUN apt-get update && \
          seaborn \
          h5py \
          tqdm \
-         http://download.pytorch.org/whl/cu90/torch-0.3.1-cp35-cp35m-linux_x86_64.whl \
+         torch \
          torchvision \
          pyro-ppl \
          skorch \
-         https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.5.0-cp35-cp35m-linux_x86_64.whl \
+         tensorflow-gpu \
          keras \
          jupyter \
          jupyter-tensorboard \
-         tensorboardX \
-         bleach==1.5.0
+         tensorboardX
 
 WORKDIR /jupyter
 
