@@ -19,11 +19,12 @@ RUN apt-get update && \
                        python3-tk \
                        python3-wheel \
                        libcupti-dev && \
-    pip3 install --upgrade pip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     mkdir /root/.ssh && \
-    pip3 --no-cache-dir install --upgrade \
+    pip3 install --upgrade pip
+    
+RUN pip3 --no-cache-dir install --upgrade \
          cython \
          numpy \
          matplotlib \
