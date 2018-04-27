@@ -10,7 +10,7 @@ services:
     build: .
     restart: unless-stopped
     volumes:
-      - jupyter:/juypter
+      - jupyter:/jupyter
     networks:
       - default
     ports:
